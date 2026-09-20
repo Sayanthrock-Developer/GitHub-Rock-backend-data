@@ -1,0 +1,202 @@
+name: Fetch All Repository Categories
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: 'Force refresh all categories (ignore cache)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  check-rate-limit:
+    runs-on: ubuntu-latest
+    outputs:
+      can_proceed: ${{ steps.check.outputs.can_proceed }}
+      remaining: ${{ steps.check.outputs.remaining }}
+    steps:
+      - name: Check GitHub API Rate Limit (all tokens)
+        id: check
+        env:
+          GH_TOKEN_TRENDING: ${{ secrets.GH_TOKEN_TRENDING }}
+          GH_TOKEN_NEW_RELEASES: ${{ secrets.GH_TOKEN_NEW_RELEASES }}
+          GH_TOKEN_MOST_POPULAR: ${{ secrets.GH_TOKEN_MOST_POPULAR }}
+          GH_TOKEN_TOPICS: ${{ secrets.GH_TOKEN_TOPICS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          MIN_REMAINING=99999
+          DEDICATED=0
+          FALLBACK=0
+          for label in TRENDING NEW_RELEASES MOST_POPULAR TOPICS; do
+            VAR="GH_TOKEN_${label}"
+            TOKEN="${!VAR}"
+            if [ -z "$TOKEN" ]; then
+              echo "::warning::$VAR not set — falling back to GITHUB_TOKEN"
+              TOKEN="$GITHUB_TOKEN"
+              FALLBACK=$((FALLBACK + 1))
+            else
+              DEDICATED=$((DEDICATED + 1))
+            fi
+            RATE_LIMIT=$(curl -s -H "Authorization: token $TOKEN" \
+              https://api.github.com/rate_limit)
+            REMAINING=$(echo $RATE_LIMIT | jq -r '.resources.core.remaining')
+            LIMIT=$(echo $RATE_LIMIT | jq -r '.resources.core.limit')
+            SRC="dedicated"
+            [ -z "${!VAR}" ] && SRC="fallback"
+            echo "$label: $REMAINING/$LIMIT remaining ($SRC)"
+            if [ "$REMAINING" -lt "$MIN_REMAINING" ]; then
+              MIN_REMAINING=$REMAINING
+            fi
+          done
+          if [ "$FALLBACK" -gt 0 ]; then
+            echo "::warning::$FALLBACK of 3 categories using shared GITHUB_TOKEN fallback — set GH_TOKEN_* secrets for independent rate limits"
+          fi
+          echo "$DEDICATED dedicated tokens, $FALLBACK using fallback"
+          echo "remaining=$MIN_REMAINING" >> $GITHUB_OUTPUT
+          if [ "$MIN_REMAINING" -gt 1000 ]; then
+            echo "can_proceed=true" >> $GITHUB_OUTPUT
+            echo "✓ All tokens OK (lowest: $MIN_REMAINING)"
+          else
+            echo "can_proceed=false" >> $GITHUB_OUTPUT
+            echo "::warning::Low rate limit on at least one token ($MIN_REMAINING remaining)"
+          fi
+
+  fetch-and-update:
+    needs: check-rate-limit
+    if: needs.check-rate-limit.outputs.can_proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Initialize cached-data directories
+        run: |
+          mkdir -p cached-data/{trending,new-releases,most-popular}
+          mkdir -p cached-data/topics/{privacy,media,productivity,networking,dev-tools}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install --upgrade pip && pip install -r scripts/requirements.txt
+
+      - name: Fetch all repository categories
+        id: fetch
+        env:
+          GH_TOKEN_TRENDING: ${{ secrets.GH_TOKEN_TRENDING }}
+          GH_TOKEN_NEW_RELEASES: ${{ secrets.GH_TOKEN_NEW_RELEASES }}
+          GH_TOKEN_MOST_POPULAR: ${{ secrets.GH_TOKEN_MOST_POPULAR }}
+          GH_TOKEN_TOPICS: ${{ secrets.GH_TOKEN_TOPICS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE_REFRESH: ${{ inputs.force_refresh || 'false' }}
+        run: |
+          python scripts/fetch_all_categories.py
+          
+          # Only check for actual JSON file changes (ignore empty directories)
+          if find cached-data -name "*.json" -newer .git/HEAD -print -quit | grep -q .; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          elif git status --porcelain cached-data/ | grep '\.json' | grep -q .; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes — caches still valid"
+          fi
+
+      - name: Validate JSON outputs
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          errors=0
+          for f in $(find cached-data -name "*.json"); do
+            if ! jq empty "$f" 2>/dev/null; then
+              echo "::error::Invalid JSON: $f"
+              errors=$((errors + 1))
+            else
+              echo "✓ $f ($(jq .totalCount "$f") repos)"
+            fi
+          done
+          [ $errors -eq 0 ] || exit 1
+
+      - name: Generate summary
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          {
+            echo "## Repository Categories Update"
+            echo "**$(date -u +'%Y-%m-%d %H:%M UTC')**"
+            echo ""
+            echo "| Category | Platform | Repos |"
+            echo "|----------|----------|-------|"
+            for cat in trending new-releases most-popular; do
+              for plat in android windows macos linux; do
+                f="cached-data/$cat/$plat.json"
+                if [ -f "$f" ]; then
+                  echo "| $cat | $plat | $(jq .totalCount "$f") |"
+                fi
+              done
+            done
+            echo ""
+            echo "### Topics"
+            echo "| Topic | Platform | Repos |"
+            echo "|-------|----------|-------|"
+            for topic in privacy media productivity networking dev-tools; do
+              for plat in android windows macos linux; do
+                f="cached-data/topics/$topic/$plat.json"
+                if [ -f "$f" ]; then
+                  echo "| $topic | $plat | $(jq .totalCount "$f") |"
+                fi
+              done
+            done
+            echo ""
+            echo "API remaining: ${{ needs.check-rate-limit.outputs.remaining }}"
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit and push
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Only add JSON files that actually exist (avoids errors from empty topic dirs)
+          find cached-data -name "*.json" -exec git add {} +
+          if git diff --cached --quiet; then
+            echo "No JSON files changed — skipping commit"
+          else
+            git commit -m "Update repository categories — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3; do
+              git push origin main && break
+              sleep 5 && git pull --rebase origin main
+            done
+          fi
+
+  notify-on-failure:
+    needs: [check-rate-limit, fetch-and-update]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create failure issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Repo fetch failed — ${new Date().toISOString().split('T')[0]}`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'automation,category-fetch'
+            });
+            if (!issues.data.find(i => i.title === title)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, labels: ['automation', 'category-fetch', 'bug'],
+                body: `Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\nRate limit: ${{ needs.check-rate-limit.outputs.remaining || 'N/A' }}`
+              });
+            }

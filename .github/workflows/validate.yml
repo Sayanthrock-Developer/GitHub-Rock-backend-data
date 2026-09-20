@@ -35,12 +35,4 @@ jobs:
 
       - name: Validate workflow YAML
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import yaml
-
-          for path in Path(".github/workflows").glob("*.yml"):
-              with path.open("r", encoding="utf-8") as f:
-                  yaml.safe_load(f)
-              print("validated", path)
-          PY
+          ruby -e 'require "yaml"; Dir[".github/workflows/*.yml"].each { |f| YAML.load_file(f); puts "validated #{f}" }'

@@ -52,7 +52,7 @@ jobs:
             fi
           done
           if [ "$FALLBACK" -gt 0 ]; then
-            echo "::warning::$FALLBACK of 3 categories using shared GITHUB_TOKEN fallback — set GH_TOKEN_* secrets for independent rate limits"
+            echo "::warning::$FALLBACK of 4 categories using shared GITHUB_TOKEN fallback — set GH_TOKEN_* secrets for independent rate limits"
           fi
           echo "$DEDICATED dedicated tokens, $FALLBACK using fallback"
           echo "remaining=$MIN_REMAINING" >> $GITHUB_OUTPUT

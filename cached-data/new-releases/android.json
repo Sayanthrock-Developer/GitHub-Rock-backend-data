@@ -1,0 +1,93 @@
+{
+  "category": "new-releases",
+  "platform": "android",
+  "lastUpdated": "2026-09-23T07:21:20.513834Z",
+  "totalCount": 2,
+  "repositories": [
+    {
+      "id": 560284721,
+      "name": "ente",
+      "fullName": "ente/ente",
+      "owner": {
+        "login": "ente",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/64603161?v=4"
+      },
+      "description": "💚 End-to-end encrypted cloud for everything.",
+      "defaultBranch": "main",
+      "htmlUrl": "https://github.com/ente/ente",
+      "stargazersCount": 29021,
+      "forksCount": 1818,
+      "language": "Dart",
+      "topics": [
+        "2fa",
+        "android",
+        "authy",
+        "e2ee",
+        "encryption",
+        "end-to-end-encryption",
+        "flutter",
+        "golang",
+        "google-photos",
+        "google-photos-alternative",
+        "ios",
+        "opensource",
+        "photos",
+        "privacy",
+        "privacy-tools",
+        "typescript",
+        "zero-knowledge"
+      ],
+      "releasesUrl": "https://api.github.com/repos/ente/ente/releases{/id}",
+      "updatedAt": "2026-09-23T07:37:03Z",
+      "createdAt": "2022-11-01T06:10:25Z",
+      "pushedAt": "2026-09-23T07:36:57Z",
+      "downloadCount": 1112882,
+      "openIssuesCount": 230,
+      "archived": false,
+      "latestReleaseDate": "2026-09-17T06:38:39Z",
+      "releaseRecency": 6,
+      "releaseRecencyText": "Released 6 days ago"
+    },
+    {
+      "id": 672516847,
+      "name": "pure_live",
+      "fullName": "liuchuancong/pure_live",
+      "owner": {
+        "login": "liuchuancong",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/36957912?v=4"
+      },
+      "description": "纯粹直播:哔哩哔哩/虎牙/斗鱼/快手/抖音/网易cc/YY直播/Twitch直播/SOOP直播/M38自定义源应有尽有。",
+      "defaultBranch": "master",
+      "htmlUrl": "https://github.com/liuchuancong/pure_live",
+      "stargazersCount": 3923,
+      "forksCount": 220,
+      "language": "Dart",
+      "topics": [
+        "bilibili",
+        "cc",
+        "douyin",
+        "douyu",
+        "fast",
+        "ffempg",
+        "free",
+        "huya",
+        "iptv",
+        "kuaishou",
+        "live",
+        "soop",
+        "twitch",
+        "yy"
+      ],
+      "releasesUrl": "https://api.github.com/repos/liuchuancong/pure_live/releases{/id}",
+      "updatedAt": "2026-09-23T07:37:09Z",
+      "createdAt": "2023-07-30T11:02:38Z",
+      "pushedAt": "2026-09-23T07:37:04Z",
+      "downloadCount": 315059,
+      "openIssuesCount": 21,
+      "archived": false,
+      "latestReleaseDate": "2026-09-15T06:45:55Z",
+      "releaseRecency": 8,
+      "releaseRecencyText": "Released 8 days ago"
+    }
+  ]
+}

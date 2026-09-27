@@ -1,53 +1,34 @@
 {
   "category": "new-releases",
   "platform": "linux",
-  "lastUpdated": "2026-09-26T07:04:36.190532Z",
+  "lastUpdated": "2026-09-27T07:36:19.114544Z",
   "totalCount": 1,
   "repositories": [
     {
-      "id": 1183888342,
-      "name": "orca",
-      "fullName": "stablyai/orca",
+      "id": 1331261687,
+      "name": "OpenMausBot",
+      "fullName": "milind-soni/OpenMausBot",
       "owner": {
-        "login": "stablyai",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/127256420?v=4"
+        "login": "milind-soni",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/46266943?v=4"
       },
-      "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
+      "description": "Open Source Alternative to Grok Bot with a virtual machine that bots can use",
       "defaultBranch": "main",
-      "htmlUrl": "https://github.com/stablyai/orca",
-      "stargazersCount": 78509,
-      "forksCount": 5135,
+      "htmlUrl": "https://github.com/milind-soni/OpenMausBot",
+      "stargazersCount": 3588,
+      "forksCount": 614,
       "language": "TypeScript",
-      "topics": [
-        "ade",
-        "agent-ide",
-        "ai-agents",
-        "claude-code",
-        "cli",
-        "codex",
-        "cursor-agent",
-        "devtools",
-        "ghostty",
-        "ide",
-        "mobile-app",
-        "opencode",
-        "orchestration",
-        "parallel-agents",
-        "pi",
-        "terminal",
-        "worktrees",
-        "yc-backed"
-      ],
-      "releasesUrl": "https://api.github.com/repos/stablyai/orca/releases{/id}",
-      "updatedAt": "2026-09-26T07:21:47Z",
-      "createdAt": "2026-03-17T03:28:57Z",
-      "pushedAt": "2026-09-26T07:20:02Z",
-      "downloadCount": 70134827,
-      "openIssuesCount": 6966,
+      "topics": [],
+      "releasesUrl": "https://api.github.com/repos/milind-soni/OpenMausBot/releases{/id}",
+      "updatedAt": "2026-09-27T07:52:51Z",
+      "createdAt": "2026-08-11T18:58:55Z",
+      "pushedAt": "2026-09-27T07:50:32Z",
+      "downloadCount": 264333,
+      "openIssuesCount": 331,
       "archived": false,
-      "latestReleaseDate": "2026-09-25T22:10:08Z",
-      "releaseRecency": 0,
-      "releaseRecencyText": "Released today"
+      "latestReleaseDate": "2026-09-26T06:13:17Z",
+      "releaseRecency": 1,
+      "releaseRecencyText": "Released yesterday"
     }
   ]
 }

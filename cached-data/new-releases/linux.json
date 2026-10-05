@@ -1,7 +1,7 @@
 {
   "category": "new-releases",
   "platform": "linux",
-  "lastUpdated": "2026-10-03T07:35:52.333020Z",
+  "lastUpdated": "2026-10-05T08:21:38.518504Z",
   "totalCount": 1,
   "repositories": [
     {
@@ -15,8 +15,8 @@
       "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
       "defaultBranch": "main",
       "htmlUrl": "https://github.com/stablyai/orca",
-      "stargazersCount": 84046,
-      "forksCount": 5417,
+      "stargazersCount": 85281,
+      "forksCount": 5494,
       "language": "TypeScript",
       "topics": [
         "ade",
@@ -39,15 +39,15 @@
         "yc-backed"
       ],
       "releasesUrl": "https://api.github.com/repos/stablyai/orca/releases{/id}",
-      "updatedAt": "2026-10-03T07:52:59Z",
+      "updatedAt": "2026-10-05T08:39:32Z",
       "createdAt": "2026-03-17T03:28:57Z",
-      "pushedAt": "2026-10-03T07:52:16Z",
-      "downloadCount": 78672180,
-      "openIssuesCount": 7410,
+      "pushedAt": "2026-10-05T08:38:22Z",
+      "downloadCount": 82193556,
+      "openIssuesCount": 7592,
       "archived": false,
-      "latestReleaseDate": "2026-10-02T20:59:25Z",
-      "releaseRecency": 0,
-      "releaseRecencyText": "Released today"
+      "latestReleaseDate": "2026-10-04T05:01:05Z",
+      "releaseRecency": 1,
+      "releaseRecencyText": "Released yesterday"
     }
   ]
 }

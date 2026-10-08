@@ -1,7 +1,7 @@
 {
   "category": "new-releases",
   "platform": "linux",
-  "lastUpdated": "2026-10-07T08:09:49.179347Z",
+  "lastUpdated": "2026-10-08T08:25:49.041007Z",
   "totalCount": 1,
   "repositories": [
     {
@@ -15,8 +15,8 @@
       "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
       "defaultBranch": "main",
       "htmlUrl": "https://github.com/storytold/photocraft",
-      "stargazersCount": 10781,
-      "forksCount": 1420,
+      "stargazersCount": 20545,
+      "forksCount": 2671,
       "language": "Rust",
       "topics": [
         "adobe",
@@ -33,15 +33,15 @@
         "rust"
       ],
       "releasesUrl": "https://api.github.com/repos/storytold/photocraft/releases{/id}",
-      "updatedAt": "2026-10-07T08:30:23Z",
+      "updatedAt": "2026-10-08T08:46:30Z",
       "createdAt": "2026-09-30T13:37:48Z",
-      "pushedAt": "2026-10-07T08:28:39Z",
-      "downloadCount": 58489,
-      "openIssuesCount": 143,
+      "pushedAt": "2026-10-08T08:42:49Z",
+      "downloadCount": 159417,
+      "openIssuesCount": 356,
       "archived": false,
-      "latestReleaseDate": "2026-10-05T04:42:21Z",
-      "releaseRecency": 2,
-      "releaseRecencyText": "Released 2 days ago"
+      "latestReleaseDate": "2026-10-07T10:33:19Z",
+      "releaseRecency": 0,
+      "releaseRecencyText": "Released today"
     }
   ]
 }

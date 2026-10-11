@@ -1,8 +1,8 @@
 {
   "category": "new-releases",
   "platform": "windows",
-  "lastUpdated": "2026-10-10T08:06:55.288656Z",
-  "totalCount": 5,
+  "lastUpdated": "2026-10-11T08:18:11.477485Z",
+  "totalCount": 2,
   "repositories": [
     {
       "id": 1398080271,
@@ -15,8 +15,8 @@
       "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
       "defaultBranch": "main",
       "htmlUrl": "https://github.com/storytold/photocraft",
-      "stargazersCount": 37666,
-      "forksCount": 5422,
+      "stargazersCount": 43752,
+      "forksCount": 6687,
       "language": "Rust",
       "topics": [
         "adobe",
@@ -33,85 +33,15 @@
         "rust"
       ],
       "releasesUrl": "https://api.github.com/repos/storytold/photocraft/releases{/id}",
-      "updatedAt": "2026-10-10T08:24:31Z",
+      "updatedAt": "2026-10-11T08:35:19Z",
       "createdAt": "2026-09-30T13:37:48Z",
-      "pushedAt": "2026-10-10T08:18:42Z",
-      "downloadCount": 525988,
-      "openIssuesCount": 591,
+      "pushedAt": "2026-10-11T08:31:48Z",
+      "downloadCount": 709330,
+      "openIssuesCount": 1091,
       "archived": false,
-      "latestReleaseDate": "2026-10-10T02:51:42Z",
+      "latestReleaseDate": "2026-10-11T02:12:31Z",
       "releaseRecency": 0,
       "releaseRecencyText": "Released today"
-    },
-    {
-      "id": 1103012935,
-      "name": "openclaw",
-      "fullName": "openclaw/openclaw",
-      "owner": {
-        "login": "openclaw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/252820863?v=4"
-      },
-      "description": "The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 ",
-      "defaultBranch": "main",
-      "htmlUrl": "https://github.com/openclaw/openclaw",
-      "stargazersCount": 391569,
-      "forksCount": 82300,
-      "language": "TypeScript",
-      "topics": [
-        "ai",
-        "assistant",
-        "crustacean",
-        "molty",
-        "openclaw",
-        "own-your-data",
-        "personal"
-      ],
-      "releasesUrl": "https://api.github.com/repos/openclaw/openclaw/releases{/id}",
-      "updatedAt": "2026-10-10T08:24:22Z",
-      "createdAt": "2025-11-24T10:16:47Z",
-      "pushedAt": "2026-10-10T08:24:19Z",
-      "downloadCount": 1046168,
-      "openIssuesCount": 9413,
-      "archived": false,
-      "latestReleaseDate": "2026-10-08T10:23:23Z",
-      "releaseRecency": 1,
-      "releaseRecencyText": "Released yesterday"
-    },
-    {
-      "id": 671654508,
-      "name": "biome",
-      "fullName": "biomejs/biome",
-      "owner": {
-        "login": "biomejs",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/140182603?v=4"
-      },
-      "description": "A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.",
-      "defaultBranch": "main",
-      "htmlUrl": "https://github.com/biomejs/biome",
-      "stargazersCount": 25916,
-      "forksCount": 1280,
-      "language": "Rust",
-      "topics": [
-        "css",
-        "formatter",
-        "javascript",
-        "json",
-        "jsx",
-        "linter",
-        "static-code-analysis",
-        "typescript",
-        "web"
-      ],
-      "releasesUrl": "https://api.github.com/repos/biomejs/biome/releases{/id}",
-      "updatedAt": "2026-10-10T08:24:11Z",
-      "createdAt": "2023-07-27T20:30:22Z",
-      "pushedAt": "2026-10-10T08:24:07Z",
-      "downloadCount": 10937909,
-      "openIssuesCount": 439,
-      "archived": false,
-      "latestReleaseDate": "2026-09-30T15:23:21Z",
-      "releaseRecency": 9,
-      "releaseRecencyText": "Released 9 days ago"
     },
     {
       "id": 1322250666,
@@ -124,8 +54,8 @@
       "description": "Tool for automatic PS5 executables porting to Linux and Windows",
       "defaultBranch": "main",
       "htmlUrl": "https://github.com/boykopovar/AnyPS5",
-      "stargazersCount": 23643,
-      "forksCount": 1952,
+      "stargazersCount": 27783,
+      "forksCount": 2348,
       "language": "C++",
       "topics": [
         "anyps5",
@@ -137,47 +67,15 @@
         "vulkan"
       ],
       "releasesUrl": "https://api.github.com/repos/boykopovar/AnyPS5/releases{/id}",
-      "updatedAt": "2026-10-10T08:24:24Z",
+      "updatedAt": "2026-10-11T08:35:35Z",
       "createdAt": "2026-08-03T21:30:25Z",
-      "pushedAt": "2026-10-10T08:23:23Z",
-      "downloadCount": 50703,
-      "openIssuesCount": 245,
+      "pushedAt": "2026-10-11T08:32:43Z",
+      "downloadCount": 64712,
+      "openIssuesCount": 286,
       "archived": false,
       "latestReleaseDate": "2026-09-28T23:34:39Z",
-      "releaseRecency": 11,
-      "releaseRecencyText": "Released 11 days ago"
-    },
-    {
-      "id": 476507964,
-      "name": "artcraft",
-      "fullName": "storytold/artcraft",
-      "owner": {
-        "login": "storytold",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/76897702?v=4"
-      },
-      "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
-      "defaultBranch": "main",
-      "htmlUrl": "https://github.com/storytold/artcraft",
-      "stargazersCount": 12407,
-      "forksCount": 1898,
-      "language": "Rust",
-      "topics": [
-        "3d-graphics",
-        "ai",
-        "aivideo",
-        "filmmaking",
-        "imagegeneration"
-      ],
-      "releasesUrl": "https://api.github.com/repos/storytold/artcraft/releases{/id}",
-      "updatedAt": "2026-10-10T08:24:16Z",
-      "createdAt": "2022-03-31T23:19:12Z",
-      "pushedAt": "2026-10-10T08:18:00Z",
-      "downloadCount": 167497,
-      "openIssuesCount": 108,
-      "archived": false,
-      "latestReleaseDate": "2026-09-26T11:14:22Z",
-      "releaseRecency": 13,
-      "releaseRecencyText": "Released 13 days ago"
+      "releaseRecency": 12,
+      "releaseRecencyText": "Released 12 days ago"
     }
   ]
 }

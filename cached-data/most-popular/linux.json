@@ -1,0 +1,70 @@
+{
+  "category": "most-popular",
+  "platform": "linux",
+  "lastUpdated": "2026-11-25T10:52:40.721043Z",
+  "totalCount": 2,
+  "repositories": [
+    {
+      "id": 1103012935,
+      "name": "openclaw",
+      "fullName": "openclaw/openclaw",
+      "owner": {
+        "login": "openclaw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/252820863?v=4"
+      },
+      "description": "The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 ",
+      "defaultBranch": "main",
+      "htmlUrl": "https://github.com/openclaw/openclaw",
+      "stargazersCount": 395179,
+      "forksCount": 82972,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "assistant",
+        "crustacean",
+        "molty",
+        "openclaw",
+        "own-your-data",
+        "personal"
+      ],
+      "releasesUrl": "https://api.github.com/repos/openclaw/openclaw/releases{/id}",
+      "updatedAt": "2026-11-25T11:15:47Z",
+      "createdAt": "2025-11-24T10:16:47Z",
+      "pushedAt": "2026-11-25T11:18:21Z",
+      "downloadCount": 1376806,
+      "openIssuesCount": 9162,
+      "archived": false,
+      "latestReleaseDate": "2026-11-25T05:42:47Z",
+      "releaseRecency": 0,
+      "releaseRecencyText": "Released today",
+      "popularityScore": 561123
+    },
+    {
+      "id": 975734319,
+      "name": "opencode",
+      "fullName": "anomalyco/opencode",
+      "owner": {
+        "login": "anomalyco",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/66570915?v=4"
+      },
+      "description": "The open source coding agent.",
+      "defaultBranch": "dev",
+      "htmlUrl": "https://github.com/anomalyco/opencode",
+      "stargazersCount": 229078,
+      "forksCount": 31183,
+      "language": "TypeScript",
+      "topics": [],
+      "releasesUrl": "https://api.github.com/repos/anomalyco/opencode/releases{/id}",
+      "updatedAt": "2026-11-25T11:04:01Z",
+      "createdAt": "2025-04-30T20:08:00Z",
+      "pushedAt": "2026-11-25T11:16:11Z",
+      "downloadCount": 101494161,
+      "openIssuesCount": 4172,
+      "archived": false,
+      "latestReleaseDate": "2026-11-23T15:57:40Z",
+      "releaseRecency": 1,
+      "releaseRecencyText": "Released yesterday",
+      "popularityScore": 291444
+    }
+  ]
+}
